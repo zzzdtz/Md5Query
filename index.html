@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title></title><!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="lib/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation -->
+<div class="toast" id="toast">
+</div>
+<div id="load" class="load">
+    <img src="./img/load.png" alt="">
+</div>
+<!-- Masthead --><header class="masthead text-white text-center">
+    <div class="overlay">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">MD5解密标记</h1>
+            </div>
+            <div class="col-md-10 mx-auto">
+                <div class="form-row">
+                    <div class="col-12 col-md-9 mb-2 mb-md-0">
+                        <input class="form-control form-control-lg"  placeholder="输入需要解密的密码文字" id = "search_md5" >
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button type="submit" class="btn btn-block btn-lg btn-primary" id="search">查询</button>
+                    </div>
+                </div>
+                <div id="content" style="margin-left:20px; color:white" class="row">
+                </div>
+                <div class="toast" id="toast">
+                </div>
+                <div id="load" class="load">
+                    <img src="./img/load.png" alt="">
+                </div>
+                <div id="md5_info">
+                    <span id="md5_mark_info">此MD5目前无人能解，快来打上私人印记吧：</span>
+                    <div class="input-group" style="margin-left:20px">
+                        <span class="input-group-addon">加密类型：</span>
+                        <input type="text" class="form-control" placeholder="加密类型" id="md5_types" readonly="readonly">
+                    </div>
+                    <div class="input-group" style="margin-top:20px ;margin-left:20px">
+                        <span class="input-group-addon">MD5贡献：</span>
+                        <input type="text" class="form-control" placeholder="MD5贡献人" id="md5_authers" readonly="readonly">
+                    </div>
+                    <div class="input-group" style="margin-top:20px ;margin-left:20px">
+                        <span class="input-group-addon">解密的值：</span>
+                        <input type="text" class="form-control" placeholder="MD5解密值" id="md5_md5s" readonly="readonly">
+                    </div>
+                    <div class="input-group" style="margin-top:20px ;margin-left:20px">
+                        <span class="input-group-addon">贡献时间：</span>
+                        <input type="text" class="form-control" placeholder="贡献时间" id="time" readonly="readonly">
+                    </div>
+                </div>
+                <div id="md5_add">
+                    <span id="mark_info">此MD5目前无人能解，快来打上私人印记吧：</span>
+                    <div class="input-group" style="margin-left:20px">
+                        <span class="input-group-addon">提交的值：</span>
+                        <input type="text" class="form-control" placeholder="你要提交的值" id="search_md5s">
+                    </div>
+                    <div class="input-group" style="margin-top:20px ;margin-left:20px">
+                        <span class="input-group-addon">加密类型：</span>
+                        <div class="form-group">
+                            <select class="form-control" id ="" "types">
+                            <option>自动</option>
+                            <option>md5(md5($pass))</option>
+                            <option>sha1</option>
+                            <option>mysql</option>
+                            <option>mysql5</option>
+                            <option>md5($pass.$salt);Joomla</option>
+                            <option>md5($salt.$pass);osCommerce</option>
+                            <option>md5(md5($pass).$salt);Vbulletin;IceBB;dz</option>
+                            <option>md5(md5($salt).$pass)</option>
+                            <option>md5($salt.$pass.$salt);TBDev</option>
+                            <option>md5($salt.md5($pass))</option>
+                            <option>md5(md5($pass).md5($salt))</option>
+                            <option>md5(md5($salt).md5($pass));ipb;mybb</option>
+                            <option>sha1($salt.$pass)</option>
+                            <option>sha1($pass.$salt)</option>
+                            <option>sha1(lower($username).$pass);SMF</option>
+                            <option>sha1(upper($username).&#39;:&#39;.upper($pass));ManGOS</option>
+                            <option>sha1($username.&#39;:&#39;.$pass)</option>
+                            <option>MD5(Unix);Des(unix);phpBB3;WordPress</option>
+                            <option>mssql</option>
+                            <option>mssql2012</option>
+                            <option>NTLM</option>
+                            <option>md5(unicode)</option>
+                            <option>sha256</option>
+                            <option>sha256($pass.$salt)</option>
+                            <option>sha256($salt.$pass)</option>
+                            <option>sha512</option>
+                            <option>sha512($pass.$salt)</option>
+                            <option>sha512($salt.$pass)</option>
+                            <option>serv-u</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-top:20px ;margin-left:20px">
+                        <span class="input-group-addon">解密的值：</span>
+                        <input type="text" class="form-control" placeholder="MD5解密值" id="md5s">
+                    </div>
+                    <div style="text-align: right;margin-top:20px ">
+                        <button class="btn btn-info" id="post">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div id="md5_input">
+                <span class="num"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</header>
+<div class="container-fluid">
+</div>
+<!-- Footer --><footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <p class="text-muted small mb-4 mb-lg-0">
+                    MD5解密标记----搜罗MD5的各种解密结果，等你来查（验证你的密码加密方式是否安全）
+                    <br>
+                    所有功能及数据仅可用于密码学研究及信息安全评估,严禁用于任何非法用途
+                    <br>
+                    不知道查什么，可以试试e10adc3949ba59abbe56e057f20f883e
+                    <br>快来星云链这里标记你解密过的MD5吧。
+                </p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+            </div>
+        </div>
+    </div>
+</footer><!-- Bootstrap core JavaScript -->
+<script src="lib/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/nebPay.js"></script>
+<script src="lib/nebulas.js"></script>
+<script src="lib/index.js"></script>
+</body>
+</html>
